@@ -341,8 +341,8 @@ function App() {
 
           <div className="text-center mt-12">
             <a
-              href="/resume.pdf"
-              download="Salmi_Abderrahman_CV.pdf"
+              href="/CV.pdf"
+              download="CV Abderrahman Salmi.pdf"
               className="inline-block px-8 py-4 rounded-lg bg-gradient-to-r from-purple-500 to-indigo-600 hover:from-purple-600 hover:to-indigo-700 transform hover:scale-105 transition-all duration-300"
             >
               Download Complete CV
