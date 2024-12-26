@@ -4,6 +4,7 @@ import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
 import SkillsSection from './components/SkillsSection';
 import ContactForm from './components/ContactForm';
 import AnimatedBackground from './components/AnimatedBackground';
+import ProjectCard from './components/ProjectCard';
 
 function App() {
   const [isOpen, setIsOpen] = useState(false);
@@ -27,6 +28,32 @@ function App() {
     { name: 'Skills', href: 'skills' },
     { name: 'CV', href: 'cv' },
     { name: 'Contact', href: 'contact' },
+  ];
+
+  const projects = [
+    {
+      title: 'Compteur de Taxi',
+      description: 'Compteur de Taxi is an Android application designed to help taxi drivers manage their fares efficiently. The app provides features such as driver profiles, fare calculations, and user-friendly interfaces to enhance the driving experience.',
+      image: `${process.env.PUBLIC_URL}/Compteur de Taxi.png`,
+      technologies: ['Android', 'Kotlin', 'XML'],
+      githubLink: 'https://github.com/zenitsudono/Compteur-de-Taxi'
+    },
+    {
+      title: 'Project 2',
+      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+      image: 'path/to/image.jpg', // Replace with actual image path
+      technologies: ['React', 'Node.js'],
+      liveLink: '', // Add live link if available
+      githubLink: '',
+    },
+    {
+      title: 'Project 3',
+      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+      image: 'path/to/image.jpg', // Replace with actual image path
+      technologies: ['React', 'Node.js'],
+      liveLink: '', // Add live link if available
+      githubLink: '',
+    },
   ];
 
   return (
@@ -209,31 +236,21 @@ function App() {
       </section>
 
       {/* Projects Section */}
-      <section id="projects" className="py-20 px-4 sm:px-6 lg:px-8">
+      <section id="projects" className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-gray-900 to-black">
         <div className="max-w-7xl mx-auto">
-          <h2 className="text-3xl font-bold mb-12 text-center gradient-text">
+          <h2 className="text-4xl font-bold mb-12 text-center bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
             Featured Projects
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {/* Project Cards */}
-            {[1, 2, 3].map((project) => (
-              <div key={project} className="interactive-card glass-effect">
-                <div className="aspect-w-16 aspect-h-9 mb-4">
-                  <div className="w-full h-full bg-gradient-to-br from-primary to-accent rounded-lg" />
-                </div>
-                <h3 className="text-xl font-semibold mb-2">Project {project}</h3>
-                <p className="text-gray-400 mb-4">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                </p>
-                <div className="flex space-x-2">
-                  <span className="px-2 py-1 text-sm rounded-full neon-border">
-                    React
-                  </span>
-                  <span className="px-2 py-1 text-sm rounded-full neon-border">
-                    Node.js
-                  </span>
-                </div>
-              </div>
+            {projects.map((project) => (
+              <ProjectCard
+                key={project.title}
+                title={project.title}
+                description={project.description}
+                image={project.image}
+                technologies={project.technologies}
+                githubLink={project.githubLink}
+              />
             ))}
           </div>
         </div>
