@@ -1,0 +1,56 @@
+/* Custom animations */
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+/* Gradient text */
+.gradient-text {
+  @apply bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent;
+}
+
+/* Glass effect */
+.glass-effect {
+  @apply bg-white/5 backdrop-blur-lg border border-white/10;
+}
+
+/* Interactive card */
+.interactive-card {
+  @apply transform transition-all duration-300 hover:-translate-y-2 hover:shadow-xl;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-gray-900;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-gradient-to-b from-primary to-accent rounded-full;
+}
+
+/* Button styles */
+.btn-primary {
+  @apply px-6 py-3 bg-gradient-to-r from-primary to-accent text-white rounded-lg 
+         hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1;
+}
+
+/* Form styles */
+.form-input {
+  @apply w-full px-4 py-2 bg-gray-800 border border-gray-700 rounded-lg 
+         focus:ring-2 focus:ring-primary focus:border-transparent;
+}
