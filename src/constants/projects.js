@@ -1,4 +1,4 @@
-export const projects = [
+ export const projects = [
   {
     title: 'Compteur de Taxi',
     description: 'Compteur de Taxi is an Android application designed to help taxi drivers manage their fares efficiently. The app provides features such as driver profiles, fare calculations, and user-friendly interfaces to enhance the driving experience.',
