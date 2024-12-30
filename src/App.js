@@ -56,6 +56,16 @@ function App() {
     },
   ];
 
+  const handleDownloadCV = () => {
+    const pdfUrl = `${process.env.PUBLIC_URL}/CV.pdf`;
+    const link = document.createElement('a');
+    link.href = pdfUrl;
+    link.setAttribute('download', 'CV Abderrahman Salmi.pdf');
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
+
   return (
     <div className="min-h-screen bg-secondary text-gray-100">
       {/* Scroll Progress Indicator */}
@@ -206,13 +216,12 @@ function App() {
                 >
                   View My Work
                 </Link>
-                <a
-                  href={`${process.env.PUBLIC_URL}/CV.pdf`}
-                  download="CV Abderrahman Salmi.pdf"
+                <button
+                  onClick={handleDownloadCV}
                   className="btn-primary inline-block bg-gradient-to-r from-purple-500 to-indigo-600 hover:from-purple-600 hover:to-indigo-700"
                 >
                   Download CV
-                </a>
+                </button>
                 <a
                   href="https://www.linkedin.com/in/salmi-abderrahman-1b296528a?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
                   target="_blank"
@@ -357,13 +366,12 @@ function App() {
           </div>
 
           <div className="text-center mt-12">
-            <a
-              href={`${process.env.PUBLIC_URL}/CV.pdf`}
-              download="CV Abderrahman Salmi.pdf"
+            <button
+              onClick={handleDownloadCV}
               className="inline-block px-8 py-4 rounded-lg bg-gradient-to-r from-purple-500 to-indigo-600 hover:from-purple-600 hover:to-indigo-700 transform hover:scale-105 transition-all duration-300"
             >
               Download Complete CV
-            </a>
+            </button>
           </div>
         </div>
       </section>
