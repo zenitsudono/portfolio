@@ -57,12 +57,14 @@ function App() {
   ];
 
   const handleDownloadCV = () => {
-    // Absolute URL approach
-    const pdfUrl = window.location.origin + '/CV.pdf';
+    // Explicit PDF URL for deployed site
+    const pdfUrl = 'https://zenitsudono.github.io/portfolio/CV.pdf';
     
     // Create a temporary anchor element
     const link = document.createElement('a');
     link.href = pdfUrl;
+    link.setAttribute('target', '_blank');
+    link.setAttribute('rel', 'noopener noreferrer');
     link.setAttribute('download', 'CV_Abderrahman_Salmi.pdf');
     
     // Append to body, click, and remove
