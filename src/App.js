@@ -57,23 +57,13 @@ function App() {
   ];
 
   const handleDownloadCV = () => {
-    // Explicit PDF URL for deployed site
-    const pdfUrl = 'https://zenitsudono.github.io/portfolio/CV.pdf';
-    
-    // Create a temporary anchor element
+    const pdfUrl = `${process.env.PUBLIC_URL}/CV.pdf`;
     const link = document.createElement('a');
     link.href = pdfUrl;
-    link.setAttribute('target', '_blank');
-    link.setAttribute('rel', 'noopener noreferrer');
-    link.setAttribute('download', 'CV_Abderrahman_Salmi.pdf');
-    
-    // Append to body, click, and remove
+    link.setAttribute('download', 'CV Abderrahman Salmi.pdf');
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
-
-    // Log for debugging
-    console.log('Attempting to download PDF from:', pdfUrl);
   };
 
   return (
@@ -257,19 +247,12 @@ function App() {
       {/* Projects Section */}
       <section id="projects" className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-gray-900 to-black">
         <div className="max-w-7xl mx-auto">
-          <h2 className="text-4xl font-bold mb-12 text-center bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
+          <h2 className="text-3xl font-bold mb-12 text-center gradient-text">
             Featured Projects
           </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {projects.map((project) => (
-              <ProjectCard
-                key={project.title}
-                title={project.title}
-                description={project.description}
-                image={project.image}
-                technologies={project.technologies}
-                githubLink={project.githubLink}
-              />
+          <div className="grid grid-cols-1 gap-8">
+            {projects.map((project, index) => (
+              <ProjectCard key={index} {...project} />
             ))}
           </div>
         </div>
