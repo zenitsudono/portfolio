@@ -57,30 +57,21 @@ function App() {
   ];
 
   const handleDownloadCV = () => {
-    // Fetch the PDF file
-    fetch(`${process.env.PUBLIC_URL}/CV.pdf`)
-      .then(response => {
-        if (!response.ok) {
-          throw new Error('Network response was not ok');
-        }
-        return response.blob();
-      })
-      .then(blob => {
-        // Create a link element, use it to download the blob, and remove it
-        const url = window.URL.createObjectURL(blob);
-        const link = document.createElement('a');
-        link.href = url;
-        link.setAttribute('download', 'CV Abderrahman Salmi.pdf');
-        document.body.appendChild(link);
-        link.click();
-        link.remove();
-        // Clean up the URL object
-        window.URL.revokeObjectURL(url);
-      })
-      .catch(error => {
-        console.error('Download failed:', error);
-        alert('Failed to download CV. Please try again or contact support.');
-      });
+    // Absolute URL approach
+    const pdfUrl = window.location.origin + '/CV.pdf';
+    
+    // Create a temporary anchor element
+    const link = document.createElement('a');
+    link.href = pdfUrl;
+    link.setAttribute('download', 'CV_Abderrahman_Salmi.pdf');
+    
+    // Append to body, click, and remove
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+
+    // Log for debugging
+    console.log('Attempting to download PDF from:', pdfUrl);
   };
 
   return (
