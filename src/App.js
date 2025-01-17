@@ -4,6 +4,7 @@ import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
 import SkillsSection from './components/SkillsSection';
 import ContactForm from './components/ContactForm';
 import AnimatedBackground from './components/AnimatedBackground';
+import { projects } from './constants/projects';
 import ProjectCard from './components/ProjectCard';
 
 function App() {
@@ -28,32 +29,6 @@ function App() {
     { name: 'Skills', href: 'skills' },
     { name: 'CV', href: 'cv' },
     { name: 'Contact', href: 'contact' },
-  ];
-
-  const projects = [
-    {
-      title: 'Compteur de Taxi',
-      description: 'Compteur de Taxi is an Android application designed to help taxi drivers manage their fares efficiently. The app provides features such as driver profiles, fare calculations, and user-friendly interfaces to enhance the driving experience.',
-      image: `${process.env.PUBLIC_URL}/Compteur de Taxi.png`,
-      technologies: ['Android', 'Kotlin', 'XML'],
-      githubLink: 'https://github.com/zenitsudono/Compteur-de-Taxi'
-    },
-    {
-      title: 'Project 2',
-      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-      image: 'path/to/image.jpg', // Replace with actual image path
-      technologies: ['React', 'Node.js'],
-      liveLink: '', // Add live link if available
-      githubLink: '',
-    },
-    {
-      title: 'Project 3',
-      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-      image: 'path/to/image.jpg', // Replace with actual image path
-      technologies: ['React', 'Node.js'],
-      liveLink: '', // Add live link if available
-      githubLink: '',
-    },
   ];
 
   const handleDownloadCV = () => {
@@ -247,10 +222,13 @@ function App() {
       {/* Projects Section */}
       <section id="projects" className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-gray-900 to-black">
         <div className="max-w-7xl mx-auto">
-          <h2 className="text-3xl font-bold mb-12 text-center gradient-text">
-            Featured Projects
+          <h2 className="text-4xl md:text-5xl font-bold mb-4 text-center">
+            <span className="gradient-text">Featured Projects</span>
           </h2>
-          <div className="grid grid-cols-1 gap-8">
+          <p className="text-gray-400 text-center mb-12 max-w-2xl mx-auto">
+            Here are some of my recent projects that showcase my skills and passion for development
+          </p>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {projects.map((project, index) => (
               <ProjectCard key={index} {...project} />
             ))}
