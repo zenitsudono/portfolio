@@ -246,7 +246,7 @@ function App() {
       <section id="cv" className="py-20 bg-gray-900">
         <div className="container mx-auto px-4">
           <h2 className="text-4xl font-bold text-center mb-12">
-            <span className="gradient-text">My  me</span>
+            <span className="gradient-text">Resume</span>
           </h2>
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
@@ -280,13 +280,43 @@ function App() {
               </div>
             </div>
 
-            {/* Certifications */}
+            {/* Development Projects */}
             <div className="p-6 rounded-lg gradient-border">
-              <h3 className="text-2xl font-semibold mb-6 gradient-text">Certifications & Achievements</h3>
-              <div className="space-y-4">
+              <h3 className="text-2xl font-semibold mb-6 gradient-text">Development Projects</h3>
+              <div className="space-y-6">
                 <div className="relative pl-6 border-l-2 border-primary/30">
-                  <h4 className="text-xl font-medium">Premier Prix - Compétition Nationale du Robotique FSR</h4>
-                  <p className="text-gray-400">Robotique</p>
+                  <h4 className="text-xl font-medium">Projet gestion du stockage</h4>
+                  <p className="text-gray-400">Langages utilisés:</p>
+                  <ul className="mt-2 list-disc list-inside text-gray-400">
+                    <li>SQL, HTML, CSS, PHP</li>
+                  </ul>
+                </div>
+
+                <div className="relative pl-6 border-l-2 border-primary/30">
+                  <h4 className="text-xl font-medium">Projet gestion des recettes</h4>
+                  <p className="text-gray-400">Langages utilisés:</p>
+                  <ul className="mt-2 list-disc list-inside text-gray-400">
+                    <li>SQL, HTML, CSS, PHP, JS</li>
+                  </ul>
+                </div>
+
+                <div className="relative pl-6 border-l-2 border-primary/30">
+                  <h4 className="text-xl font-medium">Projet compteur de taxi</h4>
+                  <p className="text-gray-400">Langages utilisés:</p>
+                  <ul className="mt-2 list-disc list-inside text-gray-400">
+                    <li>Kotlin, XML</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            {/* Robotics Projects */}
+            <div className="p-6 rounded-lg gradient-border">
+              <h3 className="text-2xl font-semibold mb-6 gradient-text">Robotics Projects</h3>
+              <div className="space-y-6">
+                <div className="relative pl-6 border-l-2 border-primary/30">
+                  <h4 className="text-xl font-medium">Premier prix à la Compétition Nationale du Robotique FSR</h4>
+                  <p className="text-gray-400">Fonctionnalités:</p>
                   <ul className="mt-2 list-disc list-inside text-gray-400">
                     <li>Premier robot: suiveur de ligne</li>
                     <li>Deuxième robot: suiveur de ligne plus capteur de couleur</li>
@@ -296,15 +326,28 @@ function App() {
                 <div className="relative pl-6 border-l-2 border-primary/30">
                   <h4 className="text-xl font-medium">Participation à la journée Robotique ENSAJ</h4>
                   <p className="text-gray-400">2024</p>
+                  <p className="text-gray-400">Fonctionnalités:</p>
                   <ul className="mt-2 list-disc list-inside text-gray-400">
                     <li>Première fonctionnalité: suiveur de ligne</li>
                     <li>Deuxième fonctionnalité: capteur de couleur</li>
                     <li>Troisième fonctionnalité: éviter l'obstacle</li>
                   </ul>
                 </div>
+
+                <div className="relative pl-6 border-l-2 border-primary/30">
+                  <h4 className="text-xl font-medium">Projet de prise intelligente</h4>
+                  <p className="text-gray-400">Fonctionnalités:</p>
+                  <ul className="mt-2 list-disc list-inside text-gray-400">
+                    <li>Mesurage du voltage</li>
+                    <li>Mesurage de l'ampérage</li>
+                    <li>Calcul du coût de consommation d'électricité</li>
+                  </ul>
+                </div>
               </div>
             </div>
+          </div>
 
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto mt-8">
             {/* Languages */}
             <div className="p-6 rounded-lg gradient-border">
               <h3 className="text-2xl font-semibold mb-6 gradient-text">Languages</h3>

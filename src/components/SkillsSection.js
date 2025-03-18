@@ -36,6 +36,16 @@ const skillCategories = [
         name: 'XML',
         logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/xml/xml-original.svg',
         color: 'text-orange-600'
+      },
+      { 
+        name: 'Flutter',
+        logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flutter/flutter-original.svg',
+        color: 'text-blue-400'
+      },
+      { 
+        name: 'Dart',
+        logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/dart/dart-original.svg',
+        color: 'text-blue-500'
       }
     ]
   },
@@ -129,6 +139,11 @@ const skillCategories = [
         name: 'Kotlin',
         logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/kotlin/kotlin-original.svg',
         color: 'text-purple-500'
+      },
+      {
+        name: 'Jetpack Compose',
+        logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jetpackcompose/jetpackcompose-original.svg',
+        color: 'text-green-500'
       }
     ]
   }
