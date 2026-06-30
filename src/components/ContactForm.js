@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { saveMessage } from '../services/messageService';
 
 const ContactForm = () => {
   const [formData, setFormData] = useState({
@@ -17,9 +18,8 @@ const ContactForm = () => {
     e.preventDefault();
     setStatus((prevStatus) => ({ ...prevStatus, submitting: true }));
 
-    // Add your form submission logic here
-    // For now, we'll just simulate a successful submission
-    setTimeout(() => {
+    try {
+      await saveMessage(formData.name, formData.email, formData.message);
       setStatus({
         submitted: true,
         submitting: false,
@@ -30,7 +30,14 @@ const ContactForm = () => {
         email: '',
         message: '',
       });
-    }, 1000);
+    } catch (error) {
+      console.error("Submission failed:", error);
+      setStatus({
+        submitted: false,
+        submitting: false,
+        info: { error: true, msg: 'Something went wrong. Please try again later.' },
+      });
+    }
   };
 
   const handleChange = (e) => {
@@ -51,12 +58,12 @@ const ContactForm = () => {
           value={formData.name}
           onChange={handleChange}
           required
-          className="peer w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:outline-none focus:border-primary transition-colors duration-300 placeholder-transparent"
+          className="peer w-full px-4 py-3 bg-white/5 border-2 border-white/10 text-white rounded-lg focus:outline-none focus:border-primary transition-colors duration-300 placeholder-transparent"
           placeholder="Name"
         />
         <label
           htmlFor="name"
-          className="absolute left-4 -top-2.5 bg-white px-2 text-sm text-gray-600 transition-all duration-300
+          className="absolute left-4 -top-2.5 bg-[#0F172A] px-2 text-sm text-gray-400 transition-all duration-300
                    peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-placeholder-shown:top-3.5
                    peer-focus:-top-2.5 peer-focus:text-sm peer-focus:text-primary"
         >
@@ -72,12 +79,12 @@ const ContactForm = () => {
           value={formData.email}
           onChange={handleChange}
           required
-          className="peer w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:outline-none focus:border-primary transition-colors duration-300 placeholder-transparent"
+          className="peer w-full px-4 py-3 bg-white/5 border-2 border-white/10 text-white rounded-lg focus:outline-none focus:border-primary transition-colors duration-300 placeholder-transparent"
           placeholder="Email"
         />
         <label
           htmlFor="email"
-          className="absolute left-4 -top-2.5 bg-white px-2 text-sm text-gray-600 transition-all duration-300
+          className="absolute left-4 -top-2.5 bg-[#0F172A] px-2 text-sm text-gray-400 transition-all duration-300
                    peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-placeholder-shown:top-3.5
                    peer-focus:-top-2.5 peer-focus:text-sm peer-focus:text-primary"
         >
@@ -93,12 +100,12 @@ const ContactForm = () => {
           value={formData.message}
           onChange={handleChange}
           required
-          className="peer w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:outline-none focus:border-primary transition-colors duration-300 placeholder-transparent resize-none"
+          className="peer w-full px-4 py-3 bg-white/5 border-2 border-white/10 text-white rounded-lg focus:outline-none focus:border-primary transition-colors duration-300 placeholder-transparent resize-none"
           placeholder="Message"
         />
         <label
           htmlFor="message"
-          className="absolute left-4 -top-2.5 bg-white px-2 text-sm text-gray-600 transition-all duration-300
+          className="absolute left-4 -top-2.5 bg-[#0F172A] px-2 text-sm text-gray-400 transition-all duration-300
                    peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-placeholder-shown:top-3.5
                    peer-focus:-top-2.5 peer-focus:text-sm peer-focus:text-primary"
         >
@@ -129,7 +136,7 @@ const ContactForm = () => {
       {status.info.msg && (
         <div
           className={`text-center p-4 rounded-lg ${
-            status.info.error ? 'bg-red-100 text-red-700' : 'bg-green-100 text-green-700'
+            status.info.error ? 'bg-red-900/30 text-red-200 border border-red-500/30' : 'bg-green-900/30 text-green-200 border border-green-500/30'
           }`}
         >
           {status.info.msg}

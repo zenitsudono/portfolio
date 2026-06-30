@@ -5,7 +5,8 @@
     description: 'A modern travel application built with Flutter, featuring a beautiful UI design, smooth animations, and comprehensive travel planning features. The app helps users discover destinations, plan their trips, and manage their travel itineraries.',
     image: `${process.env.PUBLIC_URL}/travel-app.png`,
     technologies: ['Flutter', 'Dart', 'Material Design', 'Animation', 'UI/UX'],
-    githubLink: 'https://github.com/zenitsudono/travel_app'
+    githubLink: 'https://github.com/zenitsudono/travel_app',
+    category: 'mobile'
   },
   {
     id: '2',
@@ -13,7 +14,8 @@
     description: 'An elegant clock application that displays time in a beautiful and interactive way. Features include multiple time zones, customizable themes, and smooth animations.',
     image: `${process.env.PUBLIC_URL}/horloge.png`,
     technologies: ['Flutter', 'Dart', 'Animation', 'Custom Painting', 'State Management'],
-    githubLink: 'https://github.com/zenitsudono/Horloge'
+    githubLink: 'https://github.com/zenitsudono/Horloge',
+    category: 'mobile'
   },
   {
     id: '3',
@@ -21,7 +23,8 @@
     description: 'A sophisticated Android application revolutionizing taxi fare management. Features real-time fare calculation, route optimization, driver profiles, and an intuitive interface that enhances both driver and passenger experience.',
     image: `${process.env.PUBLIC_URL}/Compteur de taxi.png`,
     technologies: ['Android', 'Kotlin', 'XML', 'Google Maps API', 'Location Services'],
-    githubLink: 'https://github.com/zenitsudono/Compteur-de-Taxi'
+    githubLink: 'https://github.com/zenitsudono/Compteur-de-Taxi',
+    category: 'mobile'
   },
   {
     id: '4',
@@ -29,7 +32,26 @@
     description: 'A modern, responsive portfolio website built with React and Tailwind CSS. Features smooth animations, dark mode, and an interactive project showcase with dynamic content loading.',
     image: `${process.env.PUBLIC_URL}/logo.jpg`,
     technologies: ['React', 'Tailwind CSS', 'JavaScript', 'Framer Motion'],
-    githubLink: 'https://github.com/zenitsudono/portfolio'
+    githubLink: 'https://github.com/zenitsudono/portfolio',
+    category: 'web'
+  },
+  {
+    id: '5',
+    title: 'Kasbah Kitchen',
+    description: 'A delightful and interactive recipes website showcasing culinary dishes, ingredient search, and user-friendly meal planning interfaces.',
+    image: `${process.env.PUBLIC_URL}/kasbah-kitchen.png`,
+    technologies: ['JavaScript', 'HTML5', 'CSS3', 'Responsive Design'],
+    githubLink: 'https://github.com/zenitsudono/-Kasbah-Kitchen',
+    category: 'web'
+  },
+  {
+    id: '6',
+    title: 'Gestflow',
+    description: 'A professional web application for managing customer complaints and tracking ticket resolution progress with a structured, data-driven dashboard.',
+    image: `${process.env.PUBLIC_URL}/gestflow.png`,
+    technologies: ['Python', 'Django', 'SQLite', 'HTML5', 'CSS3', 'Bootstrap'],
+    githubLink: 'https://github.com/zenitsudono/Gestflow',
+    category: 'web'
   }
 ];
 

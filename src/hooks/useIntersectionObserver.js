@@ -4,10 +4,19 @@ const useIntersectionObserver = (options = {}) => {
   const elementRef = useRef(null);
   const [isVisible, setIsVisible] = useState(false);
 
+  const thresholdStr = JSON.stringify(options.threshold);
+  const rootMargin = options.rootMargin;
+  const root = options.root;
+
   useEffect(() => {
+    const parsedThreshold = thresholdStr ? JSON.parse(thresholdStr) : undefined;
     const observer = new IntersectionObserver(([entry]) => {
       setIsVisible(entry.isIntersecting);
-    }, options);
+    }, {
+      threshold: parsedThreshold,
+      rootMargin,
+      root
+    });
 
     const element = elementRef.current;
     if (element) {
@@ -19,7 +28,7 @@ const useIntersectionObserver = (options = {}) => {
         observer.unobserve(element);
       }
     };
-  }, [options]);
+  }, [thresholdStr, rootMargin, root]);
 
   return [elementRef, isVisible];
 };

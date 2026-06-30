@@ -134,8 +134,7 @@ const AnimatedBackground = ({ variant = 'default' }) => {
       vx: 0,
       vy: 0
     };
-    
-    canvas.addEventListener('mousemove', (e) => {
+    const handleMouseMove = (e) => {
       const rect = canvas.getBoundingClientRect();
       const newX = e.clientX - rect.left;
       const newY = e.clientY - rect.top;
@@ -147,14 +146,17 @@ const AnimatedBackground = ({ variant = 'default' }) => {
       
       mouse.x = newX;
       mouse.y = newY;
-    });
+    };
 
-    canvas.addEventListener('mouseleave', () => {
+    const handleMouseLeave = () => {
       mouse.x = null;
       mouse.y = null;
       mouse.vx = 0;
       mouse.vy = 0;
-    });
+    };
+
+    canvas.addEventListener('mousemove', handleMouseMove);
+    canvas.addEventListener('mouseleave', handleMouseLeave);
 
     const animate = () => {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -217,8 +219,8 @@ const AnimatedBackground = ({ variant = 'default' }) => {
 
     return () => {
       window.removeEventListener('resize', setCanvasSize);
-      canvas.removeEventListener('mousemove', null);
-      canvas.removeEventListener('mouseleave', null);
+      canvas.removeEventListener('mousemove', handleMouseMove);
+      canvas.removeEventListener('mouseleave', handleMouseLeave);
     };
   }, [variant]);
 
