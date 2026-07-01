@@ -6,7 +6,6 @@ import ContactForm from './components/ContactForm';
 import AnimatedBackground from './components/AnimatedBackground';
 import { projects } from './constants/projects';
 import ProjectCard from './components/ProjectCard';
-import PrivateInbox from './components/PrivateInbox';
 import ThemeCustomizer from './components/ThemeCustomizer';
 import TerminalConsole from './components/TerminalConsole';
 
@@ -14,22 +13,6 @@ function App() {
   const [isOpen, setIsOpen] = useState(false);
   const [scrollProgress, setScrollProgress] = useState(0);
   const [selectedCategory, setSelectedCategory] = useState('all');
-  const [view, setView] = useState('portfolio'); // 'portfolio' or 'inbox'
-
-  useEffect(() => {
-    const handleHashChange = () => {
-      if (window.location.hash === '#/messages-secret') {
-        setView('inbox');
-      } else {
-        setView('portfolio');
-      }
-    };
-
-    window.addEventListener('hashchange', handleHashChange);
-    handleHashChange(); // Initial check
-
-    return () => window.removeEventListener('hashchange', handleHashChange);
-  }, []);
 
   const categories = [
     { id: 'all', name: 'All Projects' },
@@ -71,9 +54,6 @@ function App() {
     document.body.removeChild(link);
   };
 
-  if (view === 'inbox') {
-    return <PrivateInbox />;
-  }
 
   return (
     <div className="min-h-screen bg-secondary text-gray-100">

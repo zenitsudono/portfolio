@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { preloadImage } from '../utils/imageUtils';
 
-const ProjectCard = ({ title, description, image, technologies, liveLink, githubLink }) => {
+const ProjectCard = ({ title, description, image, technologies, demoLink, githubLink }) => {
   const [imageError, setImageError] = useState(false);
   const [imageLoaded, setImageLoaded] = useState(false);
 
@@ -61,9 +61,9 @@ const ProjectCard = ({ title, description, image, technologies, liveLink, github
           </div>
           
           <div className="flex space-x-4">
-            {liveLink && (
+            {demoLink && (
               <a
-                href={liveLink}
+                href={demoLink}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center px-4 py-2 rounded-xl bg-gradient-to-r from-primary to-accent text-white text-sm font-semibold transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-primary/30"

@@ -12,14 +12,21 @@ const ThemeCustomizer = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
-    const savedTheme = localStorage.getItem('portfolio_theme') || 'plasma';
-    setActiveTheme(savedTheme);
-    const target = themes.find(t => t.id === savedTheme);
-    if (target && target.bodyAttr) {
-      document.body.setAttribute('data-theme', target.bodyAttr);
-    } else {
-      document.body.removeAttribute('data-theme');
-    }
+    const syncTheme = () => {
+      const savedTheme = localStorage.getItem('portfolio_theme') || 'plasma';
+      setActiveTheme(savedTheme);
+      const target = themes.find(t => t.id === savedTheme);
+      if (target && target.bodyAttr) {
+        document.body.setAttribute('data-theme', target.bodyAttr);
+      } else {
+        document.body.removeAttribute('data-theme');
+      }
+    };
+
+    syncTheme();
+
+    window.addEventListener('theme-changed', syncTheme);
+    return () => window.removeEventListener('theme-changed', syncTheme);
   }, []);
 
   const handleSelectTheme = (theme) => {

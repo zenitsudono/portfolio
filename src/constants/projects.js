@@ -31,8 +31,9 @@
     title: 'Portfolio Website',
     description: 'A modern, responsive portfolio website built with React and Tailwind CSS. Features smooth animations, dark mode, and an interactive project showcase with dynamic content loading.',
     image: `${process.env.PUBLIC_URL}/logo.jpg`,
-    technologies: ['React', 'Tailwind CSS', 'JavaScript', 'Framer Motion'],
+    technologies: ['React', 'Tailwind CSS', 'JavaScript'],
     githubLink: 'https://github.com/zenitsudono/portfolio',
+    demoLink: 'https://zenitsudono.github.io/portfolio/',
     category: 'web'
   },
   {

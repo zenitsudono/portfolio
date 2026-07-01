@@ -3,13 +3,17 @@ import { projects } from '../constants/projects';
 
 const HELP_TEXT = [
   'Available Commands:',
-  '  about     - Learn more about Salmi Abderrahman',
-  '  skills    - Print tech stack & expertise summary',
-  '  projects  - List Web and Mobile applications',
-  '  secret    - Reveal a hidden portal hint',
-  '  matrix    - Toggle retro falling code animation',
-  '  clear     - Clear the terminal console output',
-  '  help      - Show this commands helper documentation'
+  '  about        - Learn more about Salmi Abderrahman',
+  '  skills       - Print tech stack & expertise summary',
+  '  projects     - List Web and Mobile applications',
+  '  contact      - Display email, phone, and social links',
+  '  resume       - Trigger download of my resume PDF',
+  '  theme <name> - Switch active color theme (plasma, cyberpunk, matrix, ocean)',
+  '  whoami       - Display info about the current user shell',
+  '  secret       - Reveal a hidden programming easter egg',
+  '  matrix       - Toggle retro falling code animation',
+  '  clear        - Clear the terminal console output',
+  '  help         - Show this commands helper documentation'
 ];
 
 const ABOUT_TEXT = [
@@ -99,6 +103,31 @@ const TerminalConsole = () => {
       return;
     }
 
+    // Process theme command parameter
+    if (cleanCmd.startsWith('theme ') || cleanCmd === 'theme') {
+      const themeName = cleanCmd.substring(6).trim();
+      const validThemes = ['plasma', 'cyberpunk', 'matrix', 'ocean'];
+      if (validThemes.includes(themeName)) {
+        localStorage.setItem('portfolio_theme', themeName);
+        if (themeName === 'plasma') {
+          document.body.removeAttribute('data-theme');
+        } else {
+          document.body.setAttribute('data-theme', themeName);
+        }
+        newHistory.push(`✓ Theme switched successfully to: ${themeName}`);
+        window.dispatchEvent(new Event('theme-changed'));
+      } else {
+        newHistory.push(
+          `✕ Invalid theme name: "${themeName || ''}"`,
+          `  Available themes: ${validThemes.join(', ')}`,
+          '  Usage: theme <name> (e.g., theme cyberpunk)'
+        );
+      }
+      newHistory.push('');
+      setHistory(newHistory);
+      return;
+    }
+
     switch (cleanCmd) {
       case 'clear':
         setHistory([]);
@@ -118,10 +147,38 @@ const TerminalConsole = () => {
           newHistory.push(`  - ${p.title} (${p.category}): ${p.githubLink}`);
         });
         break;
+      case 'contact':
+        newHistory.push(
+          '📞 Contact Information:',
+          '  Email:    salmi05abd@gmail.com',
+          '  Phone:    +212 606321722',
+          '  GitHub:   https://github.com/zenitsudono',
+          '  LinkedIn: https://linkedin.com/in/salmi-abderrahman'
+        );
+        break;
+      case 'resume':
+        newHistory.push('📥 Initializing download of Abderrahman CV...');
+        try {
+          const pdfUrl = `${process.env.PUBLIC_URL}/CV.pdf`;
+          const link = document.createElement('a');
+          link.href = pdfUrl;
+          link.setAttribute('download', 'CV Abderrahman Salmi.pdf');
+          document.body.appendChild(link);
+          link.click();
+          document.body.removeChild(link);
+          newHistory.push('✓ Download triggered successfully.');
+        } catch (err) {
+          newHistory.push('✕ Error: Failed to trigger download.');
+        }
+        break;
+      case 'whoami':
+        newHistory.push('A brilliant developer or recruiter exploring a futuristic monospaced interface.');
+        break;
       case 'secret':
         newHistory.push(
-          '🔑 DECRYPTED PORTAL:',
-          '  Shh! Visit the URL path: /#/messages-secret to check my private inbox log!'
+          '🤖 RETRO EASTER EGG UNLOCKED:',
+          '  "There are 10 types of people in the world: those who understand binary, and those who don\'t."',
+          '  And remember: code is like humor. When you have to explain it, it’s bad.'
         );
         break;
       case 'matrix':
