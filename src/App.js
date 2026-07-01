@@ -7,6 +7,8 @@ import AnimatedBackground from './components/AnimatedBackground';
 import { projects } from './constants/projects';
 import ProjectCard from './components/ProjectCard';
 import PrivateInbox from './components/PrivateInbox';
+import ThemeCustomizer from './components/ThemeCustomizer';
+import TerminalConsole from './components/TerminalConsole';
 
 function App() {
   const [isOpen, setIsOpen] = useState(false);
@@ -559,6 +561,10 @@ function App() {
       <footer className="py-8 text-center text-gray-500 bg-black border-t border-white/5">
         <p>© 2026 Salmi Abderrahman. All rights reserved.</p>
       </footer>
+
+      {/* Theme Customizer & Developer Terminal Console */}
+      <ThemeCustomizer />
+      <TerminalConsole />
     </div>
   );
 }

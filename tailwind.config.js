@@ -6,13 +6,13 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        primary: '#4F46E5',
+        primary: 'rgb(var(--color-primary) / <alpha-value>)',
         secondary: '#0F172A',
-        accent: '#F43F5E',
-        'gradient-start': '#6366F1',
-        'gradient-mid': '#8B5CF6',
-        'gradient-end': '#EC4899',
-        'neon': '#00FF94',
+        accent: 'rgb(var(--color-accent) / <alpha-value>)',
+        'gradient-start': 'rgb(var(--color-gradient-start) / <alpha-value>)',
+        'gradient-mid': 'rgb(var(--color-gradient-mid) / <alpha-value>)',
+        'gradient-end': 'rgb(var(--color-gradient-end) / <alpha-value>)',
+        'neon': 'rgb(var(--color-neon) / <alpha-value>)',
       },
       fontFamily: {
         sans: ['Poppins', 'sans-serif'],
