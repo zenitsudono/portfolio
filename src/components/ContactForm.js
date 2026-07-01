@@ -35,7 +35,7 @@ const ContactForm = () => {
       setStatus({
         submitted: false,
         submitting: false,
-        info: { error: true, msg: 'Something went wrong. Please try again later.' },
+        info: { error: true, msg: `Submission failed: ${error.message || 'Please try again later.'}` },
       });
     }
   };
