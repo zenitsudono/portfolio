@@ -10,7 +10,7 @@ const HELP_TEXT = [
   '  resume       - Trigger download of my resume PDF',
   '  theme <name> - Switch active color theme (plasma, cyberpunk, matrix, ocean)',
   '  whoami       - Display info about the current user shell',
-  '  secret       - Reveal a hidden programming easter egg',
+  '  secret       - Reveal a hidden portal hint',
   '  matrix       - Toggle retro falling code animation',
   '  clear        - Clear the terminal console output',
   '  help         - Show this commands helper documentation'
@@ -176,9 +176,8 @@ const TerminalConsole = () => {
         break;
       case 'secret':
         newHistory.push(
-          '🤖 RETRO EASTER EGG UNLOCKED:',
-          '  "There are 10 types of people in the world: those who understand binary, and those who don\'t."',
-          '  And remember: code is like humor. When you have to explain it, it’s bad.'
+          '🔑 DECRYPTED PORTAL:',
+          '  Shh! Visit the URL path: /#/messages-secret to check my private inbox log!'
         );
         break;
       case 'matrix':
